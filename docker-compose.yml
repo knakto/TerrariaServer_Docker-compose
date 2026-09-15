@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  playit:
+    image: ghcr.io/playit-cloud/playit-agent:1.0
+    environment:
+    - SECRET_KEY=${SECRET_KEY}
+    networks:
+      - terraria
+  friend_terraria:
+    build: .
+    image: friend_terraria
+    container_name: friend_terraria
+    user: 1001:1001
+    volumes:
+      - ./Worlds/FriendTerraria/serverconfig.txt:/home/terraria/serverconfig.txt
+      - ./Terraria/:/home/terraria/.local/share/Terraria/
+    networks:
+      - terraria
+  girlfriend_terraria:
+    build: .
+    image: friend_terraria
+    container_name: girlfriend_terraria
+    user: 1001:1001
+    volumes:
+      - ./Worlds/GFTerraria/serverconfig.txt:/home/terraria/serverconfig.txt
+      - ./Terraria/:/home/terraria/.local/share/Terraria/
+    networks:
+      - terraria
+
+networks:
+  terraria:
+    driver: bridge

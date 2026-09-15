@@ -1,0 +1,14 @@
+port=7777
+maxplayers=8
+
+world=/home/terraria/.local/share/Terraria/Worlds/secrets.wld
+worldname=secrets
+
+#1: small, 2: mediam, 3: large
+autocreate=3
+
+# 0=Classic, 1=Expert, 2=Master, 3=Journey
+difficulty=0
+#seed=epicseed
+
+#password=1234
